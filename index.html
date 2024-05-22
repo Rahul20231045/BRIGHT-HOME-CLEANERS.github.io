@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Household Cleaning Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s ease-in-out;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #008080;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo img {
+            height: 60px;
+        }
+        nav .menu {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav .menu a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav .menu a:hover {
+            color: #f4f4f4;
+        }
+        nav .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        nav .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            nav .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #008080;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            nav .menu.active {
+                display: flex;
+            }
+            nav .menu a {
+                margin: 15px 0;
+                text-align: center;
+            }
+            nav .hamburger {
+                display: flex;
+            }
+        }
+        section {
+            padding: 40px 0;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1, h2, h3 {
+            color: #333;
+            transition: color 0.5s ease-in-out;
+        }
+        .home {
+            background-color: #e7e7e7;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .about {
+            background-color: #ffcccb;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .services {
+            background-color: #ffcccb;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .testimonials {
+            background-color: #b0e57c;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .faq {
+            background-color: #add8e6;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        footer ul li {
+            margin: 10px 0;
+            color: white;
+        }
+        footer a {
+            color: #f4f4f4;
+            transition: color 0.3s ease-in-out;
+        }
+        footer a:hover {
+            color: #ddd;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        a {
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #555;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            display: flex;
+            width: calc(50% - 20px);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: left;
+            overflow: hidden;
+        }
+        .card img {
+            width: 40%;
+            height: auto;
+            border-radius: 10px 0 0 10px;
+        }
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+        }
+        .card p {
+            color: #666;
+            margin: 0 0 15px;
+        }
+        .card button {
+            align-self: flex-start;
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .card button:hover {
+            background-color: #005f5f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>[Your Company Name]</h1>
+    <p>Your one-stop solution for all household needs.</p>
+</header>
+
+<nav>
+    <div class="logo">
+        <img src="images/logo.png" alt="Company Logo">
+    </div>
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <section id="home" class="home">
+        <h2>Welcome to [Your Company Name]</h2>
+        <p>We offer professional household cleaning services to keep your home sparkling clean. Our experienced team uses eco-friendly products to ensure a safe and healthy environment for you and your family.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At [Your Company Name], we pride ourselves on delivering top-notch household cleaning services tailored to meet your specific needs and schedule. Our commitment to using eco-friendly products ensures a healthier home environment for you and your family.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="card-container">
+            <!-- Example Card -->
+            <div class="card">
+                <img src="images/cleaning.jpg" alt="Service 1">
+                <div class="card-content">
+                    <h3>Service 1</h3>
+                    <p>Description of Service 1...</p>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <!-- Additional Cards -->
+            <!-- Repeat the above structure for each service you want to display -->
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <p>"Professional and thorough cleaning services that fit perfectly into my busy schedule!" - [Client Name]</p>
+        <p>"The use of eco-friendly products is a huge plus for our family's health. Highly recommended!" - [Client Name]</p>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>What areas do you serve?</h3>
+        <p>We serve [Location/Region].</p>
+        <h3>Do you offer one-time cleaning services?</h3>
+        <p>Yes, we offer both one-time and recurring cleaning services.</p>
+        <h3>How do I book a service?</h3>
+        <p>You can book a service by calling us at [Your Phone Number] or filling out the contact form on our website.</p>
+    </section>
+</div>
+
+<footer>
+    <p>© [Year] [Your Company Name] - All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <ul>
+        <li><strong>Phone:</strong> [Your Phone Number]</li>
+        <li><strong>Email:</strong> [Your Email Address]</li>
+        <li><strong>Address:</strong> [Your Physical Address]</li>
+    </ul>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = e.currentTarget.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
